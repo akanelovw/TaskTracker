@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TestWebApp.Models
+namespace TaskTracker.Models
 {
     public class Objective
     {

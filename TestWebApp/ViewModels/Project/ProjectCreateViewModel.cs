@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using TestWebApp.Models;
+using TaskTracker.Models;
 
-namespace TestWebApp.ViewModels.Project
+namespace TaskTracker.ViewModels.Project
 {
     public class ProjectCreateViewModel : IValidatableObject
     {

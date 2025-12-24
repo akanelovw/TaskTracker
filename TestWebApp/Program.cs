@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using TestWebApp.Data;
-using TestWebApp.Models;
+using TaskTracker.Data;
+using TaskTracker.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

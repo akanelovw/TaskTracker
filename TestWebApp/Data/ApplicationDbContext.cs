@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Emit;
-using TestWebApp.Models;
+using TaskTracker.Models;
 
-namespace TestWebApp.Data
+namespace TaskTracker.Data
 {
     public class ApplicationDbContext : IdentityDbContext<AppUser>
     { 

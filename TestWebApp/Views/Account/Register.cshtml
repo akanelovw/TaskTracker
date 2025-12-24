@@ -1,4 +1,6 @@
-﻿﻿@using TestWebApp.ViewModels.Account
+﻿﻿@using TaskTracker
+@using TaskTracker.Models
+@using TaskTracker.ViewModels.Account
 @model RegisterViewModel
 
 @{
@@ -8,7 +10,7 @@
 <div class="row">
     <div class="col-md-6 offset-3">
         <p>
-            <h4>Sign up for a new account</h4>
+            <h4>Create new employee</h4>
         </p>
 
         @if (TempData["Error"] != null)

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TestWebApp.ViewModels.Project
+namespace TaskTracker.ViewModels.Project
 {
     public class ProjectUpdateViewModel : IValidatableObject
     {

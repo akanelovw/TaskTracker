@@ -2,14 +2,14 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TestWebApp.Models;
-using TestWebApp.ViewModels.Objectives;
-using TestWebApp.Data;
+using TaskTracker.Models;
+using TaskTracker.ViewModels.Objectives;
+using TaskTracker.Data;
 using System.Security.Claims;
-using TestWebApp.ViewModels.Project;
+using TaskTracker.ViewModels.Project;
 using Microsoft.AspNetCore.Authorization;
 
-namespace TestWebApp.Controllers
+namespace TaskTracker.Controllers
 {
     public class ObjectiveController : Controller
     {

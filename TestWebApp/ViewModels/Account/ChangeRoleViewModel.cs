@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace TestWebApp.ViewModels.Account
+namespace TaskTracker.ViewModels.Account
 {
     public class ChangeRoleViewModel
     {

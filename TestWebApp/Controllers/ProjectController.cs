@@ -5,12 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
-using TestWebApp.Data;
-using TestWebApp.Models;
-using TestWebApp.ViewModels.Project;
+using TaskTracker.Data;
+using TaskTracker.Models;
+using TaskTracker.ViewModels.Project;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace TestWebApp.Controllers
+namespace TaskTracker.Controllers
 {
     public class ProjectController : Controller
     {

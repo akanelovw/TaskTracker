@@ -1,4 +1,4 @@
-﻿namespace TestWebApp.Models
+﻿namespace TaskTracker.Models
 {
     public class Project
     {

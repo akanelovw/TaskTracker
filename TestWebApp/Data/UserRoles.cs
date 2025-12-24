@@ -1,4 +1,4 @@
-﻿namespace TestWebApp.Data
+﻿namespace TaskTracker.Data
 {
     public static class UserRoles
     {

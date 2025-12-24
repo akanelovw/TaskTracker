@@ -2,12 +2,12 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TestWebApp.Data;
-using TestWebApp.Models;
-using TestWebApp.ViewModels.Account;
-using TestWebApp.ViewModels.Project;
+using TaskTracker.Data;
+using TaskTracker.Models;
+using TaskTracker.ViewModels.Account;
+using TaskTracker.ViewModels.Project;
 
-namespace TestWebApp.Controllers
+namespace TaskTracker.Controllers
 {
     public class AccountController : Controller
     {

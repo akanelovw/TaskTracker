@@ -1,6 +1,6 @@
-﻿using TestWebApp.Models;
+﻿using TaskTracker.Models;
 
-namespace TestWebApp.ViewModels.Objectives
+namespace TaskTracker.ViewModels.Objectives
 {
     public class ObjectiveDetailsViewModel
     {

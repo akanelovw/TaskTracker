@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace TestWebApp.Models
+namespace TaskTracker.Models
 {
     public class AppUser : IdentityUser
     {

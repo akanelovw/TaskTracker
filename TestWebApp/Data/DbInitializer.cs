@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using TestWebApp.Models;
+using TaskTracker.Models;
 
 public static class DbInitializer
 {

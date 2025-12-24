@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TestWebApp.ViewModels.Account
+namespace TaskTracker.ViewModels.Account
 {
     public class UserUpdateViewModel
     {

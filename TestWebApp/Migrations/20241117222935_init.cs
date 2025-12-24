@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace TestWebApp.Migrations
+namespace TaskTracker.Migrations
 {
     /// <inheritdoc />
     public partial class init : Migration
