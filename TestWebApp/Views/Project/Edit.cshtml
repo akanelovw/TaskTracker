@@ -1,0 +1,105 @@
+﻿@using TestWebApp.ViewModels.Project
+@model ProjectUpdateViewModel
+@section Scripts {
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="~/js/Wizard.js"></script>
+    <script src="~/js/SelectEmployees.js"></script>
+
+}
+
+@{
+    ViewData["Title"] = "Edit Project";
+}
+
+<form id="wizard" asp-action="Edit" method="post" enctype="multipart/form-data">
+  <div class="step" id="step1">
+    <label for="projectName">Project Name</label>
+    <h2>Step 1</h2>
+    <div class="form-group">
+        <label asp-for="Title" class="control-label"></label>
+        <input asp-for="Title" class="form-control">
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="StartTime" class="control-label"></label>
+        <input asp-for="StartTime" class="form-control" type="date" />
+        <span asp-validation-for="StartTime" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EndTime" class="control-label"></label>
+        <input asp-for="EndTime" class="form-control" type="date" />
+        <span asp-validation-for="EndTime" class="text-danger"></span>
+    </div>
+    
+    <div class="form-group mb-3">
+        <label asp-for="Priority" class="form-label">Priority</label>
+        <select asp-for="Priority" class="form-select">
+            @for (int i = 1; i <= 3; i++)
+            {
+                <option value="@i">@i</option>
+            }
+        </select>
+        <span asp-validation-for="Priority" class="text-danger"></span>
+    </div>
+    <button type="button" class="btn btn-outline-success mt-2" onclick="nextStep(1)">Next</button>
+  </div>
+  <div class="step" id="step2" style="display:none;">
+    <h2>Step 2</h2>
+    <<div class="form-group">
+        <label asp-for="CustomerCompany" class="control-label"></label>
+        <input asp-for="CustomerCompany" class="form-control" />
+        <span asp-validation-for="CustomerCompany" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ExecutorCompany" class="control-label"></label>
+        <input asp-for="ExecutorCompany" class="form-control" />
+        <span asp-validation-for="ExecutorCompany" class="text-danger"></span>
+    </div>
+    <button type="button" class="btn btn-outline-secondary mt-2" onclick="prevStep(2)">Back</button>
+    <button type="button" class="btn btn-outline-success mt-2" onclick="nextStep(2)">Next</button>
+  </div>
+  <div class="step" id="step3" style="display:none;">
+    <h2>Step 3</h2>
+    <div class="form-group">
+        <label for="manager">Project Manager</label>
+        <select id="manager" asp-for="ManagerId" class="form-control">
+        </select>
+    </div>
+    <button type="button" class="btn btn-outline-secondary mt-2" onclick="prevStep(3)">Back</button>
+    <button type="button" class="btn btn-outline-success mt-2" onclick="nextStep(3)">Next</button>
+  </div>
+  <div class="step" id="step4" style="display:none;">
+    <h2>Step 4</h2>
+    <div class="form-group mb-3">
+        <div class="form-group">
+        <label for="employees">Select Employees</label>
+        <select id="employees" asp-for="EmployeesId" class="form-control" multiple="multiple">
+        </select>
+    </div>
+    </div>
+    <button type="button" class="btn btn-outline-secondary mt-2" onclick="prevStep(4)">Back</button>
+    <button type="button" class="btn btn-outline-success mt-2" onclick="nextStep(4)">Next</button>
+  </div>
+  <div class="step" id="step5" style="display:none;">
+    <h2>Step 5</h2>
+    <div id="drop-area" style="border: 2px dashed #ccc; padding: 20px; width: 400px; text-align: center;">
+        <p>Drag and drop files here</p>
+        <input type="file" id="fileInput" asp-for="Documents" multiple style="display: none;" />
+        <button class="btn btn-outline-secondary" type="button" id="browseButton">Browse</button>
+    </div>
+    
+    <div id="file-list" style="margin-top: 20px;">
+        <h3>Files to Upload:</h3>
+        <ul id="fileNames"></ul>
+    </div>
+    
+    <div id="status" style="margin-top: 20px;"></div>
+    <button type="button" class="btn btn-outline-secondary mt-2" onclick="prevStep(5)">Back</button>
+    <input class="btn btn-outline-success mt-2" type="submit" value="Edit" />
+    <a class="btn btn-outline-secondary mt-2" href="@Url.Action("Details", new { id = Model.Id })">Back to Details</a>
+  </div>
+</form>

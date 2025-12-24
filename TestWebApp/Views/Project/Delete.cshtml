@@ -1,0 +1,28 @@
+﻿@model TestWebApp.Models.Project
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div>
+    <h3>@Model.Title</h3>
+    <p><strong>Start Date:</strong> @Model.StartTime.ToString("yyyy-MM-dd")</p>
+    <p><strong>End Date:</strong> @Model.EndTime.ToString("yyyy-MM-dd")</p>
+    <p><strong>Priority:</strong> @Model.Priority</p>
+    <p><strong>Client Company:</strong> @Model.CustomerCompany</p>
+    <p><strong>Contractor Company:</strong> @Model.ExecutorCompany</p>
+</div>
+
+<div>
+    <h4>Project Manager</h4>
+    <p>@Model.Manager?.FullName</p>
+</div>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger mt-2" /> |
+        <a class="btn btn-outline-secondary mt-2" href="@Url.Action("Details", new { id = Model.Id })">Back to Details</a>
+    </form>
+</div>

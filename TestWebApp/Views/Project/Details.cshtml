@@ -1,0 +1,66 @@
+﻿@model TestWebApp.ViewModels.Project.ProjectDetailsViewModel
+
+<h2>Project Details</h2>
+
+<div>
+    <h3>@Model.Title</h3>
+    <p><strong>Start Date:</strong> @Model.StartTime.ToString("yyyy-MM-dd")</p>
+    <p><strong>End Date:</strong> @Model.EndTime.ToString("yyyy-MM-dd")</p>
+    <p><strong>Priority:</strong> @Model.Priority</p>
+    <p><strong>Client Company:</strong> @Model.CustomerCompany</p>
+    <p><strong>Contractor Company:</strong> @Model.ExecutorCompany</p>
+</div>
+
+<div>
+    <h4>Project Manager</h4>
+    <p>@Model.Manager?.FullName</p>
+</div>
+
+<div>
+    <h4>Employees</h4>
+    <ul>
+        @foreach (var employee in Model.Employees)
+        {
+            <li>@employee.FullName</li>
+        }
+    </ul>
+</div>
+
+<div>
+    <h4>Documents</h4>
+    @foreach (var document in Model.Documents)
+    {
+        <li>
+            <a href="@document.FilePath" target="_blank">@document.FileName</a>
+        </li>
+    }
+</div>
+<a class="btn btn-outline-secondary mt-2" asp-controller="Objective" asp-action="Create" asp-route-id="@Model.Id">Add Objective</a>
+<a class="btn btn-outline-secondary mt-2" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+<a class="btn btn-outline-secondary mt-2" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+<a class="btn btn-outline-secondary mt-2" href="@Url.Action("Index", "Project")">Back to List</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Comment</th>
+            <th>Assigned Employee</th>
+            <th>Status</th>
+            <th>Priority</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var objective in Model.Objectives)
+        {
+            <tr>
+                <td>@objective.Title</td>
+                <td>@objective.Comment</td>
+                <td>@(objective.AssignedEmployee?.FullName ?? "Not Assigned")</td>
+                <td>@objective.Status</td>
+                <td>@objective.Priority</td>
+                <td><a class="btn btn-outline-secondary" asp-controller="Objective" asp-action="Details" asp-route-id="@objective.Id">Details</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

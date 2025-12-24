@@ -1,0 +1,20 @@
+﻿@model TestWebApp.ViewModels.Objectives.ObjectiveDetailsViewModel
+
+<h2>Objective Details</h2>
+
+<div>
+    <h3>@Model.Title</h3>
+    <p><strong>Author:</strong> @Model.Author.FullName</p>
+    <p><strong>Comment:</strong> @Model.Comment</p>
+    <p><strong>Priority:</strong> @Model.Priority</p>
+    <p><strong>Status:</strong> @Model.Status</p>
+</div>
+
+<div>
+    <h4>Assigned Employee</h4>
+    <p>@Model.AssignedEmployee?.FullName</p>
+</div>
+<a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+<a class="btn btn-outline-secondary" asp-action="ChangeStatus" asp-route-id="@Model.Id">Change Status</a>
+<a class="btn btn-outline-secondary" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+<a class="btn btn-outline-secondary" asp-controller="Project" asp-action="Details" asp-route-id="@Model.ProjectId">Back to details</a>

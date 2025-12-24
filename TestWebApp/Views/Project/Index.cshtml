@@ -1,0 +1,63 @@
+﻿@model IEnumerable<TestWebApp.Models.Project>
+
+<h2>Projects</h2>
+
+<form method="get">
+    <div class="form-group">
+        <div class="col-md-4">
+            <label for="title" class="form-label">Search by Title:</label>
+            <input type="text" id="title" name="title" class="form-control" placeholder="Enter project title" />
+        </div>
+        <div class="col-md-4">
+            <label for="startDate">Start Date From:</label>
+            <input type="date" id="startDate" name="startDate" class="form-control" />
+        </div>
+        <div class="col-md-4">
+            <label for="priority">Priority:</label>
+            <select id="priority" name="priority" class="form-control" >
+                <option value="">-- Select a Priority --</option>
+                @for (int i = 1; i <= 3; i++)
+                {
+                    <option value="@i">@i</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="sortField">Sort By:</label>
+            <select id="sortField" name="sortField" class="form-control">
+                <option value="Title">Title</option>
+                <option value="StartDate">Start Date</option>
+                <option value="Priority">Priority</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-outline-secondary mt-2">Filter</button>
+        <a class="btn btn-outline-success mt-2" href="@Url.Action("Create")">New Project</a>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Client Company</th>
+            <th>Contractor Company</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Priority</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var project in Model)
+        {
+            <tr>
+                <td>@project.Title</td>
+                <td>@project.CustomerCompany</td>
+                <td>@project.ExecutorCompany</td>
+                <td>@project.StartTime.ToShortDateString()</td>
+                <td>@project.EndTime.ToShortDateString()</td>
+                <td>@project.Priority</td>
+                <td><a class="btn btn-outline-secondary" asp-action="Details" asp-route-id="@project.Id">Details</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

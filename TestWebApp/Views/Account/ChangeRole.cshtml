@@ -1,0 +1,29 @@
+﻿@model TestWebApp.ViewModels.Account.ChangeRoleViewModel
+
+<h2>Change User Roles - @Model.UserEmail</h2>
+
+<form asp-action="ChangeRole" method="post">
+    <input type="hidden" asp-for="UserId" />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Role</th>
+                <th>Selected</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var role in Model.AllRoles)
+            {
+                <tr>
+                    <td>@role.Name</td>
+                    <td>
+                        <input type="checkbox" name="roles" value="@role.Name"
+                        @(Model.UserRoles.Contains(role.Name) ? "checked=\"checked\"" : "") />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-outline-success">Save</button>
+    <a class="btn btn-outline-secondary" href="@Url.Action("Details", new { id = Model.UserId })">Back to Details</a>
+</form>

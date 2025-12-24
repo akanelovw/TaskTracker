@@ -1,0 +1,26 @@
+﻿@model IEnumerable<TestWebApp.ViewModels.Account.UserViewModel>
+
+<h2>Users</h2>
+<a class="btn btn-outline-success mt-2" href="@Url.Action("Register")">New User</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Middle Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
+                <td>@user.MiddleName</td>
+                <td>@user.EmailAddress</td>
+                <td><a class="btn btn-outline-secondary" asp-action="Details" asp-route-id="@user.Id">Details</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

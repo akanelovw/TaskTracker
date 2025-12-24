@@ -1,0 +1,16 @@
+﻿@model TestWebApp.ViewModels.Account.UserViewModel
+
+<h2>User Details</h2>
+
+<div>
+    <h3>@Model.EmailAddress</h3>
+    <p><strong>First Name:</strong> @Model.FirstName</p>
+    <p><strong>Last Name:</strong> @Model.LastName</p>
+    <p><strong>Middle Name:</strong> @Model.MiddleName</p>
+</div>
+
+<a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+<a class="btn btn-outline-secondary" asp-action="ChangePassword" asp-route-id="@Model.Id">Change Password</a>
+<a class="btn btn-outline-secondary" asp-action="ChangeRole" asp-route-id="@Model.Id">Change Roles</a>
+<a class="btn btn-outline-secondary" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+<a class="btn btn-outline-secondary" href="@Url.Action("Index", "Account")">Back to List</a>
